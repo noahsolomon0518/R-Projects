@@ -31,7 +31,22 @@ predict.lm(model, data.frame(Height=10),interval="confidence", level = 0.95)
 
 
 library(onewaytests)
+attach(perch_df)
+detach(perch_df)
+bf.test(Width ~ Height,data = perch_df, alpha = 0.05)
 
-bf.test(Width~Height,data = perch_df, alpha = 0.05)
 
 
+bfTest <- function(linearModel, alpha){
+  df <- data.frame(model$residuals)
+  df <- data.frame(X,Y)
+  df <- df[order(X),]
+  row.names(df) <- NULL
+  lowerDf <- df[row.names(df)<=length(df),]
+  upperDf <- df[row.names(df)>length(df),]
+  
+  
+}
+
+predict.lm(model)
+bfTest(perch_df$Width,perch_df$Weight , 0.2)
